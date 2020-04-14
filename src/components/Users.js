@@ -1,12 +1,15 @@
 import React from 'react'
-import API from '../API'
 import User from './User'
 
-const Users = ({ allUsers }) => {
+const Users = ({ allUsers, followUser , followedUsers}) => {
 
     return(
         <div>
-            {allUsers.map((user, index) => <User key={index} username={user.username}/>)}
+            {allUsers.map((user, index) => <User 
+                key={index} 
+                username={user.username}
+                followUser={() => followUser(user)}
+            />)}
         </div>
     );
 };

@@ -7,7 +7,8 @@ import Users from './Users'
 class MainPage extends Component {
 
     state = {
-        allUsers:[]
+        allUsers:[],
+        followedUsers:[]
     }
 
     componentDidMount = () => {
@@ -17,14 +18,26 @@ class MainPage extends Component {
         }))
     }
 
-    render(){
+    followUser = (userToFollow) => {
+        const allUsers = [...this.state.allUsers];
+        const notFollowedUsers = allUsers.filter(user => user !== userToFollow);
+        this.setState({ 
+            allUsers: notFollowedUsers,
+            followedUsers: [...this.state.followedUsers, userToFollow]
+        });  
+    };
 
+    render(){
         return(
             <div>
                 {/* <SearchBar
                     updateSearchedUsers={this.updateSearchedUsers}
                 /> */}
-                <Users allUsers={this.state.allUsers}/>
+                <Users 
+                    allUsers={this.state.allUsers}
+                    followUser={this.followUser}
+                    followedUsers={this.state.followedUsers}
+                />
             </div>
         )
     }
