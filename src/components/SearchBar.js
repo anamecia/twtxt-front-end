@@ -4,27 +4,29 @@ import API from '../API'
 class SearchBar extends Component{
 
     state = {
-        searchedTerm = '',
-        allUsers = []
+        searchedTerm: ''
     }
 
-    componentDidMount = () => {
-        API.getUsers()
-        .then( resp => console.log(resp))
-    }
+    searchUsers = () => {
+        API.getUsers(this.state.searchedTerm)
+        .then( resp =>{
+            if (resp.error) throw Error(resp.error)
+            console.log(resp)
+        }).catch(() => console.log('User not found'))
+    };
 
     handleOnChange = (e) => {
         this.setState({
             searchedTerm: e.target.value
-        })
-    }
+        }, () => this.searchUsers())
+    };
 
     render(){
         return(
             <div>
                 <input 
                     type='text' 
-                    onChange={null} 
+                    onChange={this.handleOnChange} 
                     value={this.state.searchedTerm}
                     placeholder='Search by user name'/>
             </div>
