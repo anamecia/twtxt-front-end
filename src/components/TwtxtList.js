@@ -7,12 +7,12 @@ const TwtxtList = ({ followedUsers }) => {
     
 
     const getIndividualTwtxt = (usersTwtxt) => {
-        usersTwtxt.map(twtxt => setTwtxts({ twtxts: [...twtxts, twtxt]}))
+        usersTwtxt.map(twtxt => setTwtxts([...twtxts, twtxt]))
     }
 
     const getUserTwtxts = (username) => {
         API.getUser(username)
-        .then(data => getIndividualTwtxt(data.twtxts))
+        .then(data =>getIndividualTwtxt(data.twtxts)) 
     }
 
     useEffect(() => {
@@ -21,6 +21,7 @@ const TwtxtList = ({ followedUsers }) => {
 
     return(
         <div>
+            {twtxts.map(twtxt => <p>{twtxt.text}</p>)}
                 
         </div>
     )
