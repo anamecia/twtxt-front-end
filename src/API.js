@@ -7,6 +7,6 @@ const get = (url) =>
 
 const getUsers = () => get(usersUrl)
 
-const getUser = (user) => get(usersUrl + user)
+const getUser = (user) => get(usersUrl + '/' + user )
 
 export default { getUsers, getUser}

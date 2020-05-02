@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import API from '../API'
 import SearchBar from './SearchBar'
 import Users from './Users'
+import TwtxtList from './TwtxtList'
 
 
 class MainPage extends Component {
@@ -36,8 +37,8 @@ class MainPage extends Component {
                 <Users 
                     allUsers={this.state.allUsers}
                     followUser={this.followUser}
-                    followedUsers={this.state.followedUsers}
                 />
+                <TwtxtList followedUsers={this.state.followedUsers}/>
             </div>
         )
     }
