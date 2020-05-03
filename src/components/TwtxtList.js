@@ -14,7 +14,14 @@ const TwtxtList = ({ followedUsers }) => {
 
     const getUserTwtxts = (username) => {
         API.getUser(username)
-        .then(data => getIndividualTwtxt(data.twtxts)) 
+        .then(data => {
+            const userAllTwtxts = data.twtxts.map(twtxt => {
+                twtxt.username = data.user
+                return twtxt
+            })
+            console.log(userAllTwtxts)
+            // getIndividualTwtxt(userAllTwtxts)
+        }) 
     }
 
     useEffect(() => {
