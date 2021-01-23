@@ -1,0 +1,17 @@
+.navigation {
+  height: 60px;
+  display: fixed;
+  top: 0;
+  left: 0;
+
+  &__content {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__logo {
+      color: $MainColor
+  }
+}

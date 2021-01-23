@@ -1,2 +1,7 @@
 
-@import "../components/navBar/NavBar.scss"
+$MainColor: #064789;
+
+//general
+@import "../styles/General.scss";
+// components
+@import "../components/navBar/NavBar.scss";
