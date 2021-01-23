@@ -1,13 +1,21 @@
-import React from 'react';
-import MainPage from './pages/MainPage'
+import React, { useState, useEffect } from "react";
+import API from "./API";
+import NavBar from "./components/navBar/NavBar";
+import MainPage from "./pages/MainPage";
 
+const App = () => {
+  const [users, setUsers] = useState([]);
 
-function App() {
+  useEffect(() => {
+    API.getUsers().then((data) => setUsers(data.users));
+  }, []);
+
   return (
     <div>
-      <MainPage/>
+      <NavBar users={users} />
+      <MainPage />
     </div>
   );
-}
+};
 
 export default App;

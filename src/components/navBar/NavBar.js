@@ -1,12 +1,12 @@
 import React from "react";
-import SearchBar from "../SearchBar";
+import SearchBar from "../seachBar/SearchBar";
 
-const NavBar = () => {
+const NavBar = ({ users }) => {
   return (
     <nav className="navigation">
       <div className="navigation__content widthContent">
         <div className="navigation__logo ">Twtxt</div>
-        <SearchBar />
+        <SearchBar users={users} />
       </div>
     </nav>
   );

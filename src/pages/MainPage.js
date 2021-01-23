@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import API from "../API";
-import SearchBar from "../components/SearchBar";
+import SearchBar from "../components/seachBar/SearchBar";
 import Users from "../components/Users";
 import TwtxtList from "../components/TwtxtList";
 import NavBar from "../components/navBar/NavBar";
@@ -11,27 +11,20 @@ class MainPage extends Component {
     followedUsers: [],
   };
 
-  componentDidMount = () => {
-    API.getUsers().then((data) =>
-      this.setState({
-        allUsers: data.users,
-      })
-    );
-  };
+ 
 
-  followUser = (userToFollow) => {
-    const allUsers = [...this.state.allUsers];
-    const notFollowedUsers = allUsers.filter((user) => user !== userToFollow);
-    this.setState({
-      allUsers: notFollowedUsers,
-      followedUsers: [...this.state.followedUsers, userToFollow],
-    });
-  };
+  // followUser = (userToFollow) => {
+  //   const allUsers = [...this.state.allUsers];
+  //   const notFollowedUsers = allUsers.filter((user) => user !== userToFollow);
+  //   this.setState({
+  //     allUsers: notFollowedUsers,
+  //     followedUsers: [...this.state.followedUsers, userToFollow],
+  //   });
+  // };
 
   render() {
     return (
       <div>
-        <NavBar />
         {/* <SearchBar
                     updateSearchedUsers={this.updateSearchedUsers}
                 /> */}
